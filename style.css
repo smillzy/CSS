@@ -1,0 +1,78 @@
+/* h1 {
+  color: #cec2e0;
+}
+
+h2 {
+  color: green;
+} */
+
+/* *{
+  color: blue;
+} */
+
+/* element selector */
+
+/* h2 {
+  color: green;
+} */
+
+/* id selector */
+
+/* #first-paragraph {
+  color: rgb(128, 64, 0);
+} */
+
+/* class selector */
+
+/* .blue-text {
+  color: purple;
+}
+
+.large-text{
+  font-size: 32px;
+} */
+
+/* a.large-text{
+  font-size: 32px;
+} */
+
+/* h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6{
+  color: red;
+} */
+
+/* 因為有 DOM Tree 結構 */
+
+/* div.link1 a {
+  color: red;
+}
+
+div.link2 a {
+  color: green;
+} */
+
+/* input[type="text"] {
+  color: red;
+}
+
+input[type="text"]:focus {
+  color: lightgreen;
+} */
+
+/* p::before {
+  content: ">>";
+  color: blue;
+} */
+
+/* p::first-line {
+  font-size: 32px;
+} */
+
+/* *::selection {
+  background-color: lightgreen;
+} */
+
