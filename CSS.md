@@ -343,3 +343,61 @@ CSS 當中的某些屬性會被子元素繼承，而某些不會
 然而，因為 user agent styling 優先度比 inheritance 更高，所以要注意瀏覽器的預設樣式**可能會覆蓋**繼承的屬性。例如，`<a>`標籤的顏色通常需要額外設定
 
 user agent styling -> 指 brower default ，瀏覽器給的預設樣式
+
+## 有衝突的 Conflicting Styling  
+
+- 由於一個HTML文件可以連結到數個CSS Stylesheet，且單一Stylesheet 內部可能出現重複設定樣式的情況，所以CSS程式碼之間可能存在衝突  
+
+```CSS
+h1{
+  color: green;
+}
+
+p{
+  color: red;
+}
+
+h1{
+  color: blue;
+}
+
+/* 
+-> 下面的藍色會覆蓋上面的綠色
+這就是階層式樣式 cascading style sheet
+*/
+```  
+
+- 衝突處理原則有 優先度 `Priority`, 特定度 `Specificity`, 以及 順序規則 `Order Rule`  
+
+  W3C的標準，網頁瀏覽器的預設樣式被稱為user agent stylesheet，而網頁瀏覽器連結的stylesheet 被稱為user stylesheet  
+
+### 優先度 `Priority`  
+
+1. Inline Styling  
+
+2. User Stylesheet (內部順序由 Specificity 決定)  
+
+3. User Agent Stylesheet  
+
+4. Inheritance  
+
+### 特定度 `Specificity`  
+
+CSS 選擇器有不同的specificities  
+
+選擇 id 比選擇 class 更 specific，所以當一個標籤有兩個具體程度不同的 CSS 選擇器時，它會取**更 specific**的樣式並套用於標籤上面，而不考慮順序前後  
+
+1. id - specificity (1, 0, 0)  
+
+2. class - specificity (0, 1, 0)  
+
+3. tag - specificity (0, 0, 1)  
+
+### 順序規則 `Order Rule`  
+
+順序規則是指：  
+
+1. 當我們有相同specificity的選擇器時，後寫的選擇器樣式會覆寫前面寫的樣式  
+
+2. 放在比較後面的`<link>` stylesheet會覆寫放在前面的`<link>` stylesheet  
+
