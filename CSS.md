@@ -401,3 +401,21 @@ CSS 選擇器有不同的specificities
 
 2. 放在比較後面的`<link>` stylesheet會覆寫放在前面的`<link>` stylesheet  
 
+# 文字樣式 text styling  
+
+- font-size - 設置字體的大小。可以設置絕對單位或是相對單位  
+
+- text-align – 設置block element或table cell中的 content的水平對齊位置  
+
+- text-decoration - 設置文本上裝飾線的外觀  
+
+- line-height - 通常用於設置文字行距  
+
+- letter-spacing - 設置文字水平間距  
+
+- font-family - 為所選元素指定一個或多個字體系列的優先列表  
+
+- text-indent - 設段落的內縮長度  
+
+- font-weight – 設定粗體字  
+
