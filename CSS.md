@@ -401,10 +401,102 @@ CSS 選擇器有不同的specificities
 
 2. 放在比較後面的`<link>` stylesheet會覆寫放在前面的`<link>` stylesheet  
 
+# 單位  
+
+## 絕對單位 absolute units  
+
+指有預設數值或是現實生活定義的單位，包含 像素 `px`（代表pixel，長度為2.54 cm (1 inch) 的 1/96）, `in`, `mm`, `cm`等等  
+
+<font color="red">預設瀏覽器的字體大小是 16 px</font>
+
+[element 預設值](https://www.w3schools.com/cssref/css_default_values.php)  
+
+```CSS
+h1{
+  font-size: 20px;
+}
+```  
+
+## 相對單位 relative units  
+
+指相對於某種數值的單位，包含：  
+
+1. `em` – 相對於**parent element**的長度  
+  在多層的 DOM Tree 當中，越下層的 element 的 em 值可能難以計算  
+
+  ```CSS
+  body{
+  font-size: 50px;
+  }
+
+  h1{
+    font-size: 1em;
+  }
+  /* 
+  相對 body 的字體大小
+  1em = 50px (body * 1)
+  2em = 100px (body * 2)
+  */
+  ```  
+
+2. `rem` – root em的意思  
+  rem會找到`<html>`這個元素的設定  
+  網頁瀏覽器的預設font size為16px，所以1rem等於16px  
+  
+  如果年長使用者的網頁瀏覽器設定字體放大，則網頁瀏覽器的預設font size可能為24px，則1rem等於24px  
+
+  ```CSS
+  h1 {
+    font-size: 3rem;
+  }
+  ```  
+
+3. `vw` – viewport width的縮寫，是指目前viewport (也就是瀏覽器視窗)的**寬度**的1/100  
+
+  100vw長度通常會略寬於網頁寬度，所以設定某個元素的寬度為 100vw會導致出現*下方水平移動軸 horizontal scrollbar*，因此<font color="red">通常不會設定100vw</font>  
+
+  ```CSS
+  h1{
+    background-color: red;
+    width: 100vw;
+  } 
+  ```  
+
+4. `vh` - viewport height的縮寫指目前viewport (也就是瀏覽器視窗)的**高度**的1/100  
+
+  ```CSS
+  h1{
+    background-color: red;
+    height: 100vh;
+  } 
+  ```  
+
+`vw`、`vh` 的好處就是用手機、平板、電腦，都可以依照瀏覽的尺寸彈性更動  
+
+5. `%` - percentage代表相對於**parent element**的值  
+  
+  例如，parent element 的 width 是 500px，在 child element 設定 width 為 50%，則 child element 寬度就是 250px  
+
+  ```CSS
+  .box {
+    width: 500px;
+    background-color: red;
+    height: 300px;
+  }
+
+  .inner-box {
+    width: 50%;
+    background-color: black;
+    height: 50%;
+  } 
+  ```  
+
 # 文字樣式 text styling  
 
-- font-size - 設置字體的大小。可以設置絕對單位或是相對單位  
+- font-size - 設置字體的大小，可以設置*絕對單位*或是*相對單位*  
 
+  ```CSS
+  ```  
 - text-align – 設置block element或table cell中的 content的水平對齊位置  
 
 - text-decoration - 設置文本上裝飾線的外觀  

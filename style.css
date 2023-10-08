@@ -88,6 +88,57 @@ h1{
   color: blue;
 } */
 
-h1{
+/* h1{
   color: blue;
+}  */
+
+/* h1{
+  font-size: 20px;
+} */
+
+/* 
+em
+
+body{
+  font-size: 50px;
+}
+
+h1{
+  font-size: 2em;
 } 
+*/
+
+/* 
+rem
+
+h1{
+  font-size: 3rem;
+} 
+*/
+
+/*
+vw, vh
+
+h1{
+  background-color: red;
+  width: 100vw;
+  height: 100vh;
+} 
+*/
+
+
+/* 
+%
+
+.box {
+  width: 500px;
+  background-color: red;
+  height: 300px;
+}
+
+.inner-box {
+  width: 50%;
+  background-color: black;
+  height: 50%;
+}  
+*/
