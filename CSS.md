@@ -495,15 +495,55 @@ h1{
 
 - font-size - 設置字體的大小，可以設置*絕對單位*或是*相對單位*  
 
+- text-align – 設置block element或table cell中的 content的水平**對齊**位置  
+
+  `<a href>` 不會有反應是因為他是 inline element  
+
+  `block element`  
   ```CSS
+  h1{
+   text-align: center;
+  }
   ```  
-- text-align – 設置block element或table cell中的 content的水平對齊位置  
+
+  `table cell`  
+  ```CSS
+  table, th, tr, td {
+    border: 1px solid black;
+  }
+
+  td, th {
+   text-align: center;
+  }
+  ```  
 
 - text-decoration - 設置文本上裝飾線的外觀  
 
+  ```CSS
+  a {
+    text-decoration: none;
+  }
+
+  a{
+    text-decoration: line-through; /* 劃掉 */
+  }
+  ```  
+
 - line-height - 通常用於設置文字行距  
 
+  ```CSS
+  p{
+    line-height: 50px;
+  }
+  ```  
+
 - letter-spacing - 設置文字水平間距  
+
+  ```CSS
+  p {
+    letter-spacing: 10px;
+  }
+  ```  
 
 - font-family - 為所選元素指定一個或多個字體系列的優先列表  
 

@@ -142,3 +142,35 @@ h1{
   height: 50%;
 }  
 */
+
+/*
+text-align
+
+h1{
+  text-align: center;
+}
+
+table, th, tr, td {
+  border: 1px solid black;
+}
+
+td, th {
+  text-align: center;
+}
+*/
+
+/*
+text-decoration
+
+a{
+  text-decoration: line-through;
+}
+*/
+
+/* p {
+  letter-spacing: 10px;
+}
+
+p{
+  line-height: 50px;
+} */
