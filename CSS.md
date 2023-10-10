@@ -545,9 +545,44 @@ h1{
   }
   ```  
 
-- font-family - 為所選元素指定一個或多個字體系列的優先列表  
+- font-family - 為所選元素指定一個或多個 **字體** 系列的優先列表  
+
+  ```CSS
+  body{
+    font-family: 'Times New Roman', Courier, monospace;
+    /* Times New Roman 找不到就用 Courier ，在找不到就用 monospace*/
+  }
+  ```  
+
+  [google fonts](https://fonts.google.com/)  
+
+  *使用方法*  
+
+  先將link放HTML檔案，再放`CSS rules to specify families`到CSS裡面  
+
+  ```CSS
+  body{
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  ```  
 
 - text-indent - 設段落的內縮長度  
+  
+  要內縮 2 個字就是 32px ， 1rem = 16px  
 
-- font-weight – 設定粗體字  
+  ```CSS
+  p{
+    text-indent: 2rem;
+  }
+  ```  
+
+- font-weight – 設定**粗體字**  
+
+  bold 粗體，bolder 加粗體  
+  
+  ```CSS
+  h1{
+    font-weight: normal;
+  }
+  ```  
 
