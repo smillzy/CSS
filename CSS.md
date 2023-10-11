@@ -344,9 +344,9 @@ CSS 當中的某些屬性會被子元素繼承，而某些不會
 
 user agent styling -> 指 brower default ，瀏覽器給的預設樣式
 
-## 有衝突的 Conflicting Styling  
+## 有衝突的 Conflicting Styling
 
-- 由於一個HTML文件可以連結到數個CSS Stylesheet，且單一Stylesheet 內部可能出現重複設定樣式的情況，所以CSS程式碼之間可能存在衝突  
+- 由於一個 HTML 文件可以連結到數個 CSS Stylesheet，且單一 Stylesheet 內部可能出現重複設定樣式的情況，所以 CSS 程式碼之間可能存在衝突
 
 ```CSS
 h1{
@@ -361,152 +361,154 @@ h1{
   color: blue;
 }
 
-/* 
+/*
 -> 下面的藍色會覆蓋上面的綠色
 這就是階層式樣式 cascading style sheet
 */
-```  
+```
 
-- 衝突處理原則有 優先度 `Priority`, 特定度 `Specificity`, 以及 順序規則 `Order Rule`  
+- 衝突處理原則有 優先度 `Priority`, 特定度 `Specificity`, 以及 順序規則 `Order Rule`
 
-  W3C的標準，網頁瀏覽器的預設樣式被稱為user agent stylesheet，而網頁瀏覽器連結的stylesheet 被稱為user stylesheet  
+  W3C 的標準，網頁瀏覽器的預設樣式被稱為 user agent stylesheet，而網頁瀏覽器連結的 stylesheet 被稱為 user stylesheet
 
-### 優先度 `Priority`  
+### 優先度 `Priority`
 
-1. Inline Styling  
+1. Inline Styling
 
-2. User Stylesheet (內部順序由 Specificity 決定)  
+2. User Stylesheet (內部順序由 Specificity 決定)
 
-3. User Agent Stylesheet  
+3. User Agent Stylesheet
 
-4. Inheritance  
+4. Inheritance
 
-### 特定度 `Specificity`  
+### 特定度 `Specificity`
 
-CSS 選擇器有不同的specificities  
+CSS 選擇器有不同的 specificities
 
-選擇 id 比選擇 class 更 specific，所以當一個標籤有兩個具體程度不同的 CSS 選擇器時，它會取**更 specific**的樣式並套用於標籤上面，而不考慮順序前後  
+選擇 id 比選擇 class 更 specific，所以當一個標籤有兩個具體程度不同的 CSS 選擇器時，它會取**更 specific**的樣式並套用於標籤上面，而不考慮順序前後
 
-1. id - specificity (1, 0, 0)  
+1. id - specificity (1, 0, 0)
 
-2. class - specificity (0, 1, 0)  
+2. class - specificity (0, 1, 0)
 
-3. tag - specificity (0, 0, 1)  
+3. tag - specificity (0, 0, 1)
 
-### 順序規則 `Order Rule`  
+### 順序規則 `Order Rule`
 
-順序規則是指：  
+順序規則是指：
 
-1. 當我們有相同specificity的選擇器時，後寫的選擇器樣式會覆寫前面寫的樣式  
+1. 當我們有相同 specificity 的選擇器時，後寫的選擇器樣式會覆寫前面寫的樣式
 
-2. 放在比較後面的`<link>` stylesheet會覆寫放在前面的`<link>` stylesheet  
+2. 放在比較後面的`<link>` stylesheet 會覆寫放在前面的`<link>` stylesheet
 
-# 單位  
+# 單位
 
-## 絕對單位 absolute units  
+## 絕對單位 absolute units
 
-指有預設數值或是現實生活定義的單位，包含 像素 `px`（代表pixel，長度為2.54 cm (1 inch) 的 1/96）, `in`, `mm`, `cm`等等  
+指有預設數值或是現實生活定義的單位，包含 像素 `px`（代表 pixel，長度為 2.54 cm (1 inch) 的 1/96）, `in`, `mm`, `cm`等等
 
 <font color="red">預設瀏覽器的字體大小是 16 px</font>
 
-[element 預設值](https://www.w3schools.com/cssref/css_default_values.php)  
+[element 預設值](https://www.w3schools.com/cssref/css_default_values.php)
 
 ```CSS
 h1{
   font-size: 20px;
 }
-```  
+```
 
-## 相對單位 relative units  
+## 相對單位 relative units
 
-指相對於某種數值的單位，包含：  
+指相對於某種數值的單位，包含：
 
 1. `em` – 相對於**parent element**的長度  
-  在多層的 DOM Tree 當中，越下層的 element 的 em 值可能難以計算  
+   在多層的 DOM Tree 當中，越下層的 element 的 em 值可能難以計算
 
-  ```CSS
-  body{
-  font-size: 50px;
-  }
+```CSS
+body{
+font-size: 50px;
+}
 
-  h1{
-    font-size: 1em;
-  }
-  /* 
-  相對 body 的字體大小
-  1em = 50px (body * 1)
-  2em = 100px (body * 2)
-  */
-  ```  
+h1{
+  font-size: 1em;
+}
+/*
+相對 body 的字體大小
+1em = 50px (body * 1)
+2em = 100px (body * 2)
+*/
+```
 
-2. `rem` – root em的意思  
-  rem會找到`<html>`這個元素的設定  
-  網頁瀏覽器的預設font size為16px，所以1rem等於16px  
-  
-  如果年長使用者的網頁瀏覽器設定字體放大，則網頁瀏覽器的預設font size可能為24px，則1rem等於24px  
+2. `rem` – root em 的意思  
+   rem 會找到`<html>`這個元素的設定  
+   網頁瀏覽器的預設 font size 為 16px，所以 1rem 等於 16px
 
-  ```CSS
-  h1 {
-    font-size: 3rem;
-  }
-  ```  
+如果年長使用者的網頁瀏覽器設定字體放大，則網頁瀏覽器的預設 font size 可能為 24px，則 1rem 等於 24px
 
-3. `vw` – viewport width的縮寫，是指目前viewport (也就是瀏覽器視窗)的**寬度**的1/100  
+```CSS
+h1 {
+  font-size: 3rem;
+}
+```
 
-  100vw長度通常會略寬於網頁寬度，所以設定某個元素的寬度為 100vw會導致出現*下方水平移動軸 horizontal scrollbar*，因此<font color="red">通常不會設定100vw</font>  
+3. `vw` – viewport width 的縮寫，是指目前 viewport (也就是瀏覽器視窗)的**寬度**的 1/100
 
-  ```CSS
-  h1{
-    background-color: red;
-    width: 100vw;
-  } 
-  ```  
+100vw 長度通常會略寬於網頁寬度，所以設定某個元素的寬度為 100vw 會導致出現*下方水平移動軸 horizontal scrollbar*，因此<font color="red">通常不會設定 100vw</font>
 
-4. `vh` - viewport height的縮寫指目前viewport (也就是瀏覽器視窗)的**高度**的1/100  
+```CSS
+h1{
+  background-color: red;
+  width: 100vw;
+}
+```
 
-  ```CSS
-  h1{
-    background-color: red;
-    height: 100vh;
-  } 
-  ```  
+4. `vh` - viewport height 的縮寫指目前 viewport (也就是瀏覽器視窗)的**高度**的 1/100
 
-`vw`、`vh` 的好處就是用手機、平板、電腦，都可以依照瀏覽的尺寸彈性更動  
+```CSS
+h1{
+  background-color: red;
+  height: 100vh;
+}
+```
 
-5. `%` - percentage代表相對於**parent element**的值  
-  
-  例如，parent element 的 width 是 500px，在 child element 設定 width 為 50%，則 child element 寬度就是 250px  
+`vw`、`vh` 的好處就是用手機、平板、電腦，都可以依照瀏覽的尺寸彈性更動
 
-  ```CSS
-  .box {
-    width: 500px;
-    background-color: red;
-    height: 300px;
-  }
+5. `%` - percentage 代表相對於**parent element**的值
 
-  .inner-box {
-    width: 50%;
-    background-color: black;
-    height: 50%;
-  } 
-  ```  
+例如，parent element 的 width 是 500px，在 child element 設定 width 為 50%，則 child element 寬度就是 250px
 
-# 文字樣式 text styling  
+```CSS
+.box {
+  width: 500px;
+  background-color: red;
+  height: 300px;
+}
 
-- font-size - 設置字體的大小，可以設置*絕對單位*或是*相對單位*  
+.inner-box {
+  width: 50%;
+  background-color: black;
+  height: 50%;
+}
+```
 
-- text-align – 設置block element或table cell中的 content的水平**對齊**位置  
+# 文字樣式 text styling
 
-  `<a href>` 不會有反應是因為他是 inline element  
+- font-size - 設置字體的大小，可以設置*絕對單位*或是*相對單位*
 
-  `block element`  
+- text-align – 設置 block element 或 table cell 中的 content 的水平**對齊**位置
+
+  `<a href>` 不會有反應是因為他是 inline element
+
+  `block element`
+
   ```CSS
   h1{
    text-align: center;
   }
-  ```  
+  ```
 
-  `table cell`  
+  `table cell`
+
   ```CSS
   table, th, tr, td {
     border: 1px solid black;
@@ -515,9 +517,9 @@ h1{
   td, th {
    text-align: center;
   }
-  ```  
+  ```
 
-- text-decoration - 設置文本上裝飾線的外觀  
+- text-decoration - 設置文本上裝飾線的外觀
 
   ```CSS
   a {
@@ -527,62 +529,126 @@ h1{
   a{
     text-decoration: line-through; /* 劃掉 */
   }
-  ```  
+  ```
 
-- line-height - 通常用於設置文字行距  
+- line-height - 通常用於設置文字行距
 
   ```CSS
   p{
     line-height: 50px;
   }
-  ```  
+  ```
 
-- letter-spacing - 設置文字水平間距  
+- letter-spacing - 設置文字水平間距
 
   ```CSS
   p {
     letter-spacing: 10px;
   }
-  ```  
+  ```
 
-- font-family - 為所選元素指定一個或多個 **字體** 系列的優先列表  
+- font-family - 為所選元素指定一個或多個 **字體** 系列的優先列表
 
   ```CSS
   body{
     font-family: 'Times New Roman', Courier, monospace;
     /* Times New Roman 找不到就用 Courier ，在找不到就用 monospace*/
   }
-  ```  
+  ```
 
-  [google fonts](https://fonts.google.com/)  
+  [google fonts](https://fonts.google.com/)
 
-  *使用方法*  
+  _使用方法_
 
-  先將link放HTML檔案，再放`CSS rules to specify families`到CSS裡面  
+  先將 link 放 HTML 檔案，再放`CSS rules to specify families`到 CSS 裡面
 
   ```CSS
   body{
     font-family: 'Noto Sans TC', sans-serif;
   }
-  ```  
+  ```
 
-- text-indent - 設段落的內縮長度  
-  
-  要內縮 2 個字就是 32px ， 1rem = 16px  
+- text-indent - 設段落的內縮長度
+
+  要內縮 2 個字就是 32px ， 1rem = 16px
 
   ```CSS
   p{
     text-indent: 2rem;
   }
-  ```  
+  ```
 
-- font-weight – 設定**粗體字**  
+- font-weight – 設定**粗體字**
 
-  bold 粗體，bolder 加粗體  
-  
+  bold 粗體，bolder 加粗體
+
   ```CSS
   h1{
     font-weight: normal;
   }
-  ```  
+  ```
 
+# 背景樣式
+
+- background-color - 用來設定 HTML**元素的背景顏色**，值可以是顏色亦可以是特定關鍵字，例如 transparent
+
+  ```CSS
+  /* 顏色 */
+  h1 {
+    background-color: rgba(200, 200, 200, 0.5);
+  }
+
+  /* 關鍵字 */
+  h1 {
+    background-color: transparent;
+  }
+  ```
+
+- background-image - 在元素上設置一個或多個背景**圖像**
+
+  ```CSS
+  body {
+    background-image: url("./故宮圖片2.jpeg");
+  }
+  ```
+
+- background-size - 設置元素**背景**圖像的**大小**
+
+  [background size](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size)
+
+  圖像可以保留其自然大小、拉伸或限制以適應可用空間
+
+  設定`contain`，則會在其容器內盡可能大地 **等比例縮放** 圖像，而不裁剪或拉伸圖像。 如果容器大於圖像，這將導致圖像*重複平鋪*，除非 background-repeat 屬性設置為 `no-repeat`
+
+  ```CSS
+  body {
+    background-image: url("./故宮圖片2.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  ```
+
+  設定`cover`，則會將圖像（同時保持其比例）縮放到盡可能小的尺寸以填充容器（即：其高度和寬度都完全覆蓋容器），不留空白。 如果背景的比例與元素不同，則圖像將被垂直或水平*裁剪*
+
+  ```CSS
+  body {
+    background-image: url("./故宮圖片2.jpeg");
+    background-size: cover;
+  }
+  ```
+
+- background-position - 設置每個背景圖像的**\*初始位置**。 center 使圖像居中。也可設定 top, left, bottom, right
+
+  ```CSS
+  body {
+    background-position: bottom;
+  }
+  ```
+
+- background –背景各種設定的 快捷 shorthand 設定，可一次設置所有背景樣式屬性，例如顏色、圖像、原點和大小，或重複方法
+
+  [background mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
+
+  例如  
+  background: green; 可代表 background-color: green;  
+  background: url(“test.jpg”); 可代表 background-image : url(“test.jpg”);
