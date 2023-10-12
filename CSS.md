@@ -652,3 +652,85 @@ h1{
   例如  
   background: green; 可代表 background-color: green;  
   background: url(“test.jpg”); 可代表 background-image : url(“test.jpg”);
+
+# Box Model
+
+CSS Box Model 是指，每個 block element 都被視為一個 box，並且 box 由`margin`, 邊界 `border`, content 跟邊界的距離 `padding`以及`content`所組成
+
+inline element 僅使用 Box Model 中定義的一部分屬性
+
+![Box Model](./截圖/Box_Model.png)
+
+padding、 border 以及 margin 都可再分別設定上下左右的個別屬性
+
+- content：顯示內容的區域； 使用 `width` 和 `height` 等屬性調整大小
+
+  ```CSS
+  h1 {
+    width: 500px;
+    height: 600px;
+    background-color: aquamarine;
+  }
+  ```
+
+  21.44 是 h1 的預設，`margin-top: 0.67em`，`margin-bottom: 0.67em`
+
+  ![content](./截圖/content.png)
+
+- padding：位於 content 周圍的區域，在 content 與 border 之間； 可使用 `padding` 屬性調整大小
+
+  [padding mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/padding)
+
+  ```CSS
+  h1 {
+    padding-left: 100px;
+  }
+  ```
+
+  ![padding](./截圖/padding.png)
+
+  padding 的 shorthand property
+
+  - Apply to all four sides
+    ```CSS
+    padding: 1em;
+    ```
+  - top and bottom | left and right
+    ```CSS
+    padding: 5% 10%;
+    ```
+  - top | right | bottom | left
+    ```CSS
+    padding: 5px 1em 0 2em;
+    ```
+
+- border： 包住 content 與 padding 的邊框； 可使用 `border` 屬性調整大小
+
+  [border mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/border)
+
+  ```CSS
+  h1 {
+    border: 5px solid black;
+  }
+  ```
+
+  ![border](./截圖/border.png)
+
+  border 可特別設定 外框圓滑度(半徑)`border-radius` 屬性
+
+  ```CSS
+  h1 {
+    border-radius: 30px;
+  }
+  ```
+
+  ![border-radius](./截圖/border-radius.png)
+
+- margin：border 外的區域；可用 `margin` 屬性調整大小
+
+  ```CSS
+  h1 {
+    border: 5px solid black;
+    margin: 0rem 3rem;
+  }
+  ```

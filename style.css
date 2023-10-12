@@ -195,3 +195,8 @@ p{
   background-size: cover;
   background-position: bottom;
 } */
+
+h1 {
+  border: 5px solid black;
+  border-radius: 30px;
+}
