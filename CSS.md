@@ -734,3 +734,64 @@ padding、 border 以及 margin 都可再分別設定上下左右的個別屬性
     margin: 0rem 3rem;
   }
   ```
+
+## 屬性說明
+
+### width
+
+指定元素的寬度。_預設情況下，該屬性定義內容 content 的寬度_
+
+在 CSS 中，`width`可以直接設定 %
+
+對於 block element 來說，因為寬度的值與 content 無關，而是跟 parent element 一樣寬，往上追溯直到`<html>`，而瀏覽器在計算有效寬度時會考慮瀏覽器窗口的打開寬度。因此，若我們設定 block element 的 `width: 50%`是可行的，會讓 block element 的寬度變成其 parent element 的一半
+
+但是，如果 box-sizing 設置為 border-box，它會被設定為 border 區域的寬度
+
+## height
+
+指定元素的高度。_預設情況下，該屬性定義 content 區域的高度_
+
+在 CSS 中，`height`**不行**直接設定 %
+
+block element 的 `height` 取決於其 content。但瀏覽器根本就不計算內容的高度，所有的 element 的高度都是 auto
+
+當我們要求瀏覽器根據這樣一個預設值來計算百分比高度時，只能得到 `undefined` 的結果
+
+因此，直接設定 block element 的 `height: 50%`並不能改變其高度，除非我們先設定`<html>`,`<body>`的高度是 100%
+
+如果要使用 % 來設定高度，必須先設定 parent element 高度為某特定值，這樣才算得出來，例如， parent element 高度為 `1000px`、`30vh` 等等
+
+```CSS
+body {
+  height: 1000px;
+}
+div.box {
+  width: 50%;
+  height: 50%;
+  padding: 10px;
+  border: 10px solid black;
+  background-color: green;
+}
+```
+
+但是，如果 box-sizing 設置為 border-box，它會被設定為 border 區域的高度
+
+## 溢出 overflow
+
+在絕大數的情況，我們不會去設定某個元素的高度，所以若有設定高度，則須考慮**溢出 overflow**的情況
+
+當元素的寬度或高度小於 content 時，我們可以設定 overflow 屬性來選擇處理方式：
+
+- `visible`(預設) - content 不會被修剪，可以呈現在元素框之外
+
+  ![visible](./截圖/visible.png)
+
+- `hidden` - 如果需要，內容將被剪裁以適合元素。不提供滾動條
+
+  ![hidden](./截圖/hidden.png)
+
+- `scroll` - 如有必要，內容將被剪裁以適合填充框。 瀏覽器顯示移動軸
+
+  ![scroll](./截圖/scroll.png)
+
+若想要指設定特定方向的 overflow 屬性，可只選擇 水平方向 `overflow-x`或 垂直方向 `overflow-y`
