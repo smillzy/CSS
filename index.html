@@ -2,14 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        /* 上面設定可使瀏覽器原預設值消失 */
+
+        box-sizing: content-box;
+      }
+
       p {
+        width: 500px;
+        /* <p>屬於block element，預設寬度為瀏覽器寬度 */
+        background-color: green;
+        padding: 50px;
+        border: 5px solid black;
+      }
+      /* p {
         background-color: lightgreen;
         height: 500px;
         overflow: scroll;
-      }
+      } */
       /* body {
         height: 1000px;
       }
@@ -24,6 +40,11 @@
   </head>
   <body>
     <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est libero
+      repudiandae quis, itaque labore necessitatibus aspernatur deserunt
+      perspiciatis odio explicabo?
+    </p>
+    <!-- <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla veritatis
       sed quae illo obcaecati nobis? Ipsam alias explicabo expedita dolorum quam
       nostrum molestias natus molestiae similique sed, nobis totam officiis
@@ -128,7 +149,7 @@
       veritatis soluta consequuntur? Cumque mollitia ratione facere consequatur
       ad dolorum numquam inventore. Laboriosam consequatur omnis alias incidunt
       accusamus sunt magnam!
-    </p>
+    </p> -->
     <!-- <div class="box"></div> -->
   </body>
 </html>

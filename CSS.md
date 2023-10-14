@@ -795,3 +795,76 @@ div.box {
   ![scroll](./截圖/scroll.png)
 
 若想要指設定特定方向的 overflow 屬性，可只選擇 水平方向 `overflow-x`或 垂直方向 `overflow-y`
+
+## box-sizing
+
+CSS 預設的`box-sizing`屬性分為
+
+> content 當作設定優先值
+
+content-box，意指 padding 與 border 會**附加**到已經設定的`width`與`height`上面，拓展整個 box model 的大小。例如：
+
+![box-sizing](./截圖/box-sizing.png)
+
+![box-sizing 2](./截圖/box-sizing2.png)
+
+box 實際佔用的空間是 410px 寬（350 + 25 + 25 + 5 + 5）和 210px 高（150 + 25 + 25 + 5 + 5）
+
+---
+
+> border 當作設定優先值
+
+border-box，則 width 和 height 屬性 -> 內容 content + 內邊距 padding + 邊框 border，但**不包括**外邊距 margin。適合用在設定元素大小。例如：
+
+![border-box](./截圖/border-box.png)
+
+![border-box2](./截圖/border-box2.png)
+
+box 的總寬度為 350px，高度為 150px，但 content 寬度只有 290px，左右 padding 分別為 25px，左右 border 分別為 5px，所以 290 + 25 + 25 + 5 + 5 =350
+
+[box-sizing mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)
+
+示範
+
+> 沒有設定 width
+
+```CSS
+* {
+  margin: 0;
+  padding: 0;
+  /* 上面設定可使瀏覽器原預設值消失 */
+
+  box-sizing: border-box;
+}
+
+p {
+  /* <p>屬於block element，預設寬度為瀏覽器寬度 */
+  background-color: green;
+  padding: 50px;
+  border: 5px solid black;
+}
+```
+
+![border-box3](./截圖/border-box3.png)
+
+> 固定 width
+
+```CSS
+* {
+  margin: 0;
+  padding: 0;
+  /* 上面設定可使瀏覽器原預設值消失 */
+
+  box-sizing: border-box;
+}
+
+p {
+  width: 500px;
+  /* <p>屬於block element，預設寬度為瀏覽器寬度 */
+  background-color: green;
+  padding: 50px;
+  border: 5px solid black;
+}
+```
+
+![border-box4](./截圖/border-box4.png)
